@@ -20,35 +20,55 @@ public class Ex_repeticao04 {
 		
 		Scanner input = new Scanner(System.in);	
 		
-		int cont = 0, sexo, psi, fem, mas, out, calm, nerv, aggr;
+		int cont = 0, idade = 0, sexo= 0, psi = 0, fem = 0, mas = 0, out = 0, calm = 0 , mulherNerv = 0, homemAggr = 0, outCalm = 0, calmMenos18 = 0, nervMais40 = 0;
 		
 		System.out.println("--- Analisador de personalidades ---");
-		while(cont != 10) {
+		while(cont != 1) {
 			System.out.println("-----------------------------------------------------------");
-			System.out.print("Escolha o sexo da pessoa:\n\n\n1) Feminino\n\n2) Masculino\n\n3) Outros \n-->");
+			System.out.print("\n\nDigite a idade da pesoa: ");
+			idade = input.nextInt();
+			System.out.print("Escolha o sexo da pessoa:\n\n1) Feminino\n2) Masculino\n3) Outros \n-->");
 			sexo = input.nextInt();
-			if(sexo > 3) {
-				System.out.print("Opção inválida! Digite apenas entre 1 e 3.\n\nEscolha o sexo da pessoa:\n\n\n1) Feminino\n\n2) Masculino\n\n3) Outros \n-->");
-				sexo = input.nextInt();
-			}
-			System.out.println("Digite as características psicológicas:\n\n\n1) A pessoa era calma\n\n2) A pessoa era nervosa\n\n3) A pessoa era agressiva");
+			
+			System.out.println("Digite as características psicológicas:\n\n1) A pessoa era calma\n2) A pessoa era nervosa\n3) A pessoa era agressiva");
 			psi = input.nextInt();
-			if(psi > 3) {
-				System.out.print("Opção inválida! Digite apenas entre 1 e 3.\n\nDigite as características psicológicas:\n\n\n1) A pessoa era calma\n\n2) A pessoa era nervosa\n\n3) A pessoa era agressiva");
-				psi = input.nextInt();
-			}
 			cont++;
 			
 		}
 		System.out.println(cont);
-		System.out.println("Calculando");
+		System.out.println("Calculando...");
 		
+		if(psi == 1) {
+			calm++;
+		}
+		if(sexo == 1 && psi == 2) {
+			mulherNerv++;
+		}
+		if(sexo == 2 && psi == 3) {
+			homemAggr++;
+		}
+		if(sexo == 3 && psi == 1) {
+			outCalm++;
+		}
+		if(idade > 40 && psi == 2) {
+			nervMais40++;
+		}
+		if(idade < 18 && psi == 1) {
+			calmMenos18++;
+		}
 		
+		System.out.print("O número de pessoas calmas foi: " + calm + ";\n");
+		System.out.print("O número de mulheres nervosas foi: " + mulherNerv +  ";\n");
+		System.out.print("O número de homens agressivos foi: " + homemAggr + ";\n");
+		System.out.print("O número de outros calmo foi: " + outCalm + ";\n");
+		System.out.print("O número de pessoas nervosas maiores de 40 anos foi:" + nervMais40 + ";\n");
+		System.out.print("O número de pessoas calmas menores de 18 anos foi: " + calmMenos18 + ".\n");
 		
 		
 		
 		
 		input.close();
+		System.out.println("FIM DO PROGRAMA");
 	}
 
 }
